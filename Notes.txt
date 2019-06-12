@@ -1,0 +1,80 @@
+Core Design Principles Notes-
+
+-what do we consider as a good design?
+	a design is god if the cost of changing the design is minimum.
+	but we will come to know about this only when we start designing.
+	therefore,it is almost impossible to get the design right the 1st time.
+	there has to be many prototypes before getting the perfect design.
+	therefore it is said that that-
+				
+			Software is never written, it is always rewritten
+
+-how to evaluate quality of design?
+	to create a good design, 1st step is to let go of the ego and be unemotional.
+	this step is of course non-technical but are very important.
+	KISS principle(Keep It Simple and Stupid)-
+		whatever that is simple is what keeps you focused.it doesnt annoy or bore you.
+		simple is easier to understand and fails less.
+	Complexity is of 2 types-
+		inherent   - we cant ever fix this type.
+		accidental - the solution that we use for a problem brings this complexity.
+	therefore,a good design is the one that hides inherent and eliminates the accidental complexity.
+
+-YAGNIy(You Arent Gonna Need It yet)
+	dont do something until there is clear reason to do it.
+	when should i implement a new feature or something?
+	
+		Now				Later			Postpone?
+		
+	      cost now		  >		cost later		  YES
+	      cost now           ==             cost later		  YES
+	      cost now            <   		cost later		  if highly probable - NO
+									  if less probable   - YES
+	this principle doesnt support procrastination.
+	procrastination is not doing somethin that could have been done yesterday.
+
+-cohesion
+	a code that is not taking several responsibility.it is focused on doing one thing.
+	we want a s/w to change, but the change shouldnt be expensive.if a code is cohesive, it has to change less frequently.
+	therefore, using cohesive codes would be less expensive when changes are needed.
+	
+-coupling
+	coupling is the degree of what you depend on.
+	worst form of coupling - inheritance
+	we should always try to remove coupling. but we cant remove all dependencies.
+	therefore, when needed, we shall make use of loose coupling instead of tight coupling.
+	depending on a class is a tight coupling.
+	depending on an interface is loose coupling.
+	a good design has high cohesion and low coupling.
+
+-we always duplicate codes, but its a bad idea.this gives us a new principle
+-DRY(Dont Repeat Yourself)
+	dont duplicate code and effort.
+	DRY principle helps in reduction of cost on development.
+-long methods
+	never use long methods.why?because they are
+	1)hard to test.
+		2)hard to debug.
+		3)hard to reuse.
+		4)leads to duplication.therefore violating DRY principle.
+		5)leads to low cohesion and high coupling.
+	SLAP(Single Level of Abstraction Principle)-
+		dont comment what,instead comment why.therefore make codes such that you need not comment to make it easier to understand.
+
+-open close principle
+	s/w  module(module can be class or method or anything in java)should be open for extension but closed to modulation.
+	that is s/w should be able to do more than it can,without modulation.
+	abstraction and polymorphism are key to make this happen.
+
+-we always overuse inheritance.but this should not be the case because it demands more from a developer than composition does.
+ therefore new principle follows.
+-liskov substituion principle
+	if an object of B should be used anywhere an obj of A is used, only then use inheritance.
+	if an object of B should use an obj A,then use composition/delegation.
+	therefore,use composition instead of inheritance unless you want substitutibility.
+-derived function can throw any new checked exception if not thrown by the base.
+-collection of derived doesnt extend from collection of base.
+-Dependency Inversion Principle
+	a class shouldnt depend on another class, instead they both should depend on an abstraction(interface).
+-Interface Segregation Principle-
+	Instead of making 1 bulky interface,use different multiple cohesive interfaces.	
